@@ -1,0 +1,27 @@
+{
+  "name": "esprezzatura-loyalty",
+  "version": "1.0.0",
+  "description": "Loyalty Card App for Esprezzatura Coffee Cart",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon -e html,js,css ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Octowl/esprezzatura-loyalty.git"
+  },
+  "author": "Jenna and Aziz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Octowl/esprezzatura-loyalty/issues"
+  },
+  "homepage": "https://github.com/Octowl/esprezzatura-loyalty#readme",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "sequelize": "^3.23.2"
+  }
+}
