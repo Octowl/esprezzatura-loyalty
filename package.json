@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Octowl/esprezzatura-loyalty#readme",
   "dependencies": {
     "angular": "^1.5.5",
+    "angular-messages": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
     "body-parser": "^1.15.1",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",

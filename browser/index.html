@@ -5,20 +5,17 @@
     <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="/bootstrap-dark.css" rel="stylesheet" />
     <link href="/stylesheet.css" rel="stylesheet" />
-    <script src="/angular/angular.js"></script>
+    <script src="/angular/angular.js" defer></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js" defer></script>
+    <script src="/angular-messages/angular-messages.js" defer></script>
+    <script src="/js/module.js" defer></script>
+    <script src="/js/phoneNumber/phoneNumber.state.js" defer></script>
+    <script src="/js/phoneNumber/phoneNumber.controller.js" defer></script>
+    <script src="/js/phoneNumber/phoneNumber.factory.js" defer></script>
   </head>
 
-  <body>
+  <body ng-app="coffeeCard">
 
-	  <div id="form" >
-	  	
-	  	<div class="input-group input-group-lg">
+    <ui-view></ui-view>
 
-	  		<input type="text" class="form-control" placeholder="Enter your phone number">
-	  		<span class="input-group-addon glyphicon glyphicon-phone"></span>
-
-		</div>
-
-	  </div>
-  
   </body>
