@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, './node_modules')));
 
 
 //routes
+app.use('/api', require('./routes'));
 
 /*
  This middleware will catch any URLs resembling a file extension
