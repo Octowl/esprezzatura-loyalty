@@ -3,11 +3,12 @@
 coffeeCard.directive('rewardButton', function(){
     return {
         restrict: 'E',
-        template: '<div ng-if="rewardNum <= card.drinksNumber" class="btn-reward"><button class="btn btn-circle btn-lg" style="background-image: url({{icon}})" ng-click="claim()"></button></div>',
+        templateUrl: 'js/rewardButton/rewardButton.html',
         scope: {
             update: '=',
             icon: '@',
             card: '=',
+            color: '@',
             rewardNum: '@'
         },
         link: function(scope) {
