@@ -6,8 +6,8 @@ coffeeCard.config(function ($stateProvider) {
         templateUrl: '/js/card/card.html',
         controller: 'CardCtrl',
         resolve : {
-        	card : function($stateParams, PhoneFactory) {
-        		return PhoneFactory.findOrCreate($stateParams.phone)
+        	card : function($stateParams, CardFactory) {
+        		return CardFactory.findOrCreate($stateParams.phone);
         	}
         }
     });

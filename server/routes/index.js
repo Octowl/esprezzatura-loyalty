@@ -8,7 +8,7 @@ var Customer = db.model('customer');
 module.exports = router;
 
 router.get('/cards/:phoneNumber', function(req, res, next) {
-    var phoneNumber = req.params.phoneNumber
+    var phoneNumber = req.params.phoneNumber;
     Customer.findOrCreate({
         where: {
             phoneNumber: phoneNumber
@@ -18,4 +18,15 @@ router.get('/cards/:phoneNumber', function(req, res, next) {
         res.send(data);
     })
     .catch(next);
-})
+});
+
+router.put('/cards/:id', function(req, res, next){
+    Customer.findById(req.params.id)
+    .then(function(foundCustomer){
+        return foundCustomer.updateDrinks(req.body.drinksNumber);
+    })
+    .then(function(updatedCustomer){
+        res.send(updatedCustomer);
+    })
+    .catch(next);
+});
