@@ -21,10 +21,16 @@ db.define('customer', {
     },
     drinksNumber: {
         type: Sequelize.INTEGER,
-        defaultValue: 0
-        // set: function(val) {
-        //     if(this.getDataValue('drinksNumber') )
-        // }
+        defaultValue: 1
+    }
+},{
+    instanceMethods: {
+        updateDrinks: function(num) {
+            num++;
+            if(num == this.drinksNumber) this.drinksNumber--;
+            else this.drinksNumber = num;
+            return this.save();
+        }
     }
 });
 
