@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 1337;
 
 server.on('request', require('./app'));
 
+// TODO: Remove force true in production
 db.sync({force: true})
     .then(function () {
         server.listen(PORT, function () {
