@@ -23,10 +23,13 @@ db.define('customer', {
         type: Sequelize.INTEGER,
         defaultValue: 1,
         set: function(num) {
-                num++;
                 var drinksNumber = this.getDataValue('drinksNumber');
-                if(num == drinksNumber) this.setDataValue('drinksNumber', drinksNumber-1);
-                else this.setDataValue('drinksNumber', num);
+
+                drinksNumber = drinksNumber == num ? drinksNumber-1 : num;
+
+                drinksNumber = drinksNumber < 0 ? 0 : drinksNumber;
+
+                this.setDataValue('drinksNumber', drinksNumber);
             }
     },
     name : {
