@@ -1,6 +1,11 @@
+/*jshint node:true, esversion:6*/
+'use strict';
+require('babel-register');
+
 var express = require('express');
 var app = express();
 
+var chalk = require('chalk');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
@@ -11,9 +16,9 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, './public')));
-app.use(express.static(path.join(__dirname, './browser')));
-app.use(express.static(path.join(__dirname, './node_modules')));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../browser')));
+app.use(express.static(path.join(__dirname, '../node_modules')));
 
 
 //routes
