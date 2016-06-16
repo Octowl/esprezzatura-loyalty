@@ -22,5 +22,9 @@ coffeeCard.factory('CardFactory', function($http) {
         return $http.put('/api/cards/' + id, {drinksNumber: num}).then(resToData);
     };
 
+    CardFactory.updateName = function(name, id) {
+        return $http.put('/api/cards/' + id, {name: name}).then(resToData);
+    };
+
     return CardFactory;
 });

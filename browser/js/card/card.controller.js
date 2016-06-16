@@ -16,4 +16,11 @@ coffeeCard.controller('CardCtrl', function ($scope, $log, $state, CardFactory, c
 		.catch($log.error);
 	};
 
+	$scope.$watch('card.name', function() {
+		CardFactory.updateName($scope.card.name, $scope.card.id)
+		.catch($log.error);
+	}, true);
+
+
+
 });

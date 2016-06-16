@@ -32,3 +32,9 @@ body {
   color : gold;
   text-shadow: 2px 2px black;;
 }
+
+.large-font {
+  font-size :2em;
+  text-align: center;
+  color : black;
+}
