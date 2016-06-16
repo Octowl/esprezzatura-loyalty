@@ -21,17 +21,18 @@ db.define('customer', {
     },
     drinksNumber: {
         type: Sequelize.INTEGER,
-        defaultValue: 1
+        defaultValue: 1,
+        set: function(num) {
+                num++;
+                var drinksNumber = this.getDataValue('drinksNumber');
+                if(num == drinksNumber) this.setDataValue('drinksNumber', drinksNumber-1);
+                else this.setDataValue('drinksNumber', num);
+            }
+    },
+    name : {
+        type : Sequelize.STRING
     }
 },{
-    instanceMethods: {
-        updateDrinks: function(num) {
-            num++;
-            if(num == this.drinksNumber) this.drinksNumber--;
-            else this.drinksNumber = num;
-            return this.save();
-        }
-    }
 });
 
 module.exports = db;

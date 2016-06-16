@@ -23,7 +23,7 @@ router.get('/cards/:phoneNumber', function(req, res, next) {
 router.put('/cards/:id', function(req, res, next){
     Customer.findById(req.params.id)
     .then(function(foundCustomer){
-        return foundCustomer.updateDrinks(req.body.drinksNumber);
+        return foundCustomer.update(req.body);
     })
     .then(function(updatedCustomer){
         res.send(updatedCustomer);
