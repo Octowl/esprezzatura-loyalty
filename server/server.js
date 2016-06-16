@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 1337;
 
 server.on('request', require('./app'));
 
-db.sync()
+db.sync({force: true})
     .then(function () {
         server.listen(PORT, function () {
             console.log(chalk.blue('Server started on port', chalk.magenta(PORT)));
