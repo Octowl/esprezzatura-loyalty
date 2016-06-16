@@ -1,3 +1,4 @@
+/*global angular, console*/
 'use strict';
 
 var coffeeCard = angular.module('coffeeCard', ['ui.router', 'ngMessages']);
@@ -11,4 +12,4 @@ coffeeCard.run(function ($rootScope) {
 coffeeCard.config(function($urlRouterProvider){
     // when there is an empty route, redirect to /index
     $urlRouterProvider.when('', '/phone');
-})
+});

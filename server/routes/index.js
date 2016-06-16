@@ -1,14 +1,15 @@
+/*jshint node:true, esversion:6*/
 'use strict';
 
 var router = require('express').Router();
 var db = require('../models');
-var CoffeeDrinker = db.model('coffeedrinker');
+var Customer = db.model('customer');
 
 module.exports = router;
 
 router.get('/cards/:phoneNumber', function(req, res, next) {
     var phoneNumber = req.params.phoneNumber
-    CoffeeDrinker.findOrCreate({
+    Customer.findOrCreate({
         where: {
             phoneNumber: phoneNumber
         }

@@ -1,10 +1,13 @@
+/*jshint node:true, esversion:6*/
+'use strict';
+
 var Sequelize = require('sequelize');
 
 var db = new Sequelize('postgres://localhost:5432/esp', {
   logging: false
 });
 
-var CoffeeDrinker = db.define('coffeedrinker', {
+db.define('customer', {
     phoneNumber: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -23,6 +26,6 @@ var CoffeeDrinker = db.define('coffeedrinker', {
         //     if(this.getDataValue('drinksNumber') )
         // }
     }
-})
+});
 
 module.exports = db;
