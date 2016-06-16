@@ -1,13 +1,10 @@
 'use strict';
 
-coffeeCard.controller('PhoneNumberCtrl', function ($scope, $log, $state, PhoneFactory) {
+coffeeCard.controller('PhoneNumberCtrl', function ($scope, $log, $state) {
 
     $scope.submit = function(phoneNumber) {
-        PhoneFactory.findOrCreate(phoneNumber)
-        .then(function(card) {
-            console.log(card);
-        })
-        .catch($log.err);
-    }
+      
+        $state.go('cardState', {phone : phoneNumber});
 
+	}
 });
