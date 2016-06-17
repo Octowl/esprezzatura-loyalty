@@ -2,11 +2,9 @@
     <p contenteditable ng-model="card.name" placeholder="What is your name ?" class="large-font"></p>
     <br>
 	<div>
-		<span ng-class="{'glyphicon-star': $index < card.drinksNumber, 'glyphicon-star-empty' : $index >= card.drinksNumber}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon" ng-click="updateDrinks($index+1, card.id)"></span>
+		<span ng-class="{'glyphicon-star': $index < card.drinksNumber, 'glyphicon-star-empty' : $index >= card.drinksNumber}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon" ng-click="updateDrinks($index+1)"></span>
 	</div>
 	<div class="row">
         <reward-button ng-repeat="reward in rewards" class="col-lg-6" update="updateDrinks" card="card" reward-num={{reward.rewardNumber}} icon={{reward.icon}} color={{reward.color}}></reward-button>
-		<!-- <reward-button class="col-lg-6" update="updateDrinks" card="card" reward-num="10" icon="images/coffeecup.svg" color="white"></reward-button>
-		<reward-button class="col-lg-6" update="updateDrinks" card="card" reward-num="15" icon="images/coffeecup.svg" color="platinum"></reward-button> -->
 	</div>
 </div>

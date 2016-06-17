@@ -1,27 +1,25 @@
 'use strict';
 
-coffeeCard.controller('CardCtrl', function ($scope, $log, $state, CardFactory, card, rewards) {
+coffeeCard.controller('CardCtrl', function ($scope, $log, card, rewards) {
 
-	$scope.card = card ;
-	$scope.rewards = rewards;
+    $scope.card = card;
+    $scope.rewards = rewards;
 
-	$scope.getNumber = function(number) {
-		return new Array(number);
-	};
+    $scope.getNumber = function (number) {
+        return new Array(number);
+    };
 
-	$scope.updateDrinks = function(num, id) {
-		CardFactory.updateNumber(num, id)
-		.then(function(newCard){
-			$scope.card = newCard;
-		})
-		.catch($log.error);
-	};
+    $scope.updateDrinks = function (num) {
+        $scope.card.drinksNumber = num;
+        $scope.card.save()
+            .then(function (card) {
+                $scope.card = card;
+            })
+            .catch($log.error);
+    };
 
-	$scope.$watch('card.name', function() {
-		CardFactory.updateName($scope.card.name, $scope.card.id)
-		.catch($log.error);
-	}, true);
-
-
+    $scope.$watch('card.name', function () {
+        $scope.card.save();
+    }, true);
 
 });

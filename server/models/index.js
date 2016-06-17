@@ -24,11 +24,9 @@ db.define('customer', {
         defaultValue: 1,
         set: function(num) {
                 var drinksNumber = this.getDataValue('drinksNumber');
-
+                console.log(drinksNumber, num);
                 drinksNumber = drinksNumber == num ? drinksNumber-1 : num;
-
                 drinksNumber = drinksNumber < 0 ? 0 : drinksNumber;
-
                 this.setDataValue('drinksNumber', drinksNumber);
             }
     },
