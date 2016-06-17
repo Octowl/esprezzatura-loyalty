@@ -16,7 +16,7 @@ coffeeCard.directive('rewardButton', function(){
                 var card = scope.card;
                 var rewardNum = scope.rewardNum;
                 scope.update(card.drinksNumber - rewardNum, card.id);
-            }
+            };
         }
     };
 });
