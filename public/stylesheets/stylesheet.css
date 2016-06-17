@@ -1,3 +1,7 @@
+#xbutton {
+  color : #aaa;
+}
+
 body {
   background-image: url(../images/background.png);
 }
