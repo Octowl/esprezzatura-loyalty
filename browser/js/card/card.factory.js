@@ -1,7 +1,11 @@
 'use strict';
 
-coffeeCard.factory('CardFactory', function($http) {
-    var CardFactory = {};
+coffeeCard.factory('CardFactory', function ($http) {
+    function Card(props) {
+        angular.extend(this, props);
+    }
+
+    Card.url = '/api/cards/';
 
     function resToData(res) {
         return res.data;
@@ -9,22 +13,22 @@ coffeeCard.factory('CardFactory', function($http) {
 
     function getCard(res) {
         var data = resToData(res);
-        var card = data[0];
-        card.created = data[1];
+        var card = new Card(Array.isArray(data) ? data[0] : data);
         return card;
     }
 
-    CardFactory.findOrCreate = function(phoneNumber) {
-        return $http.get('/api/cards/' + phoneNumber).then(getCard);
+    Card.prototype.getUrl = function () {
+        return Card.url + this.id;
     };
 
-    CardFactory.updateNumber = function(num, id) {
-        return $http.put('/api/cards/' + id, {drinksNumber: num}).then(resToData);
+    Card.findOrCreate = function (phoneNumber) {
+        return $http.get(Card.url + phoneNumber).then(getCard);
     };
 
-    CardFactory.updateName = function(name, id) {
-        return $http.put('/api/cards/' + id, {name: name}).then(resToData);
+    Card.prototype.save = function () {
+        return $http.put(this.getUrl(), this)
+            .then(getCard);
     };
 
-    return CardFactory;
+    return Card;
 });

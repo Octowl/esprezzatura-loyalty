@@ -8,7 +8,10 @@ coffeeCard.config(function ($stateProvider) {
         resolve : {
         	card : function($stateParams, CardFactory) {
         		return CardFactory.findOrCreate($stateParams.phone);
-        	}
+        	},
+            rewards: function(RewardFactory) {
+                return RewardFactory.getAll();
+            }
         }
     });
 });

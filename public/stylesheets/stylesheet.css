@@ -2,6 +2,10 @@ body {
   background-image: url(../images/background.png);
 }
 
+/** {
+  border-radius: 0 !important;
+}*/
+
 #form, #card {
   position: absolute;
   top: 50%;
@@ -15,6 +19,12 @@ body {
   border-radius: 20px;
   padding: 30px;
   border: 2px solid #212120;
+}
+
+#reward-header {
+    text-align: center;
+    color: #212120;
+    padding: 20px 0 0 0;
 }
 
 .glyphicon-star-empty, .glyphicon-star {
