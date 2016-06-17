@@ -9,7 +9,9 @@ coffeeCard.run(function ($rootScope) {
  });
 });
 
-coffeeCard.config(function($urlRouterProvider){
+coffeeCard.config(function($urlRouterProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
+
     // when there is an empty route, redirect to /index
     $urlRouterProvider.when('', '/phone');
 });

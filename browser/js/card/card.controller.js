@@ -1,6 +1,8 @@
 'use strict';
 
-coffeeCard.controller('CardCtrl', function ($scope, $log, card, rewards) {
+coffeeCard.controller('CardCtrl', function ($scope, $log, card, rewards, user) {
+
+    if(!user) $state.go('login');
 
     $scope.card = card;
     $scope.rewards = rewards;

@@ -10,11 +10,41 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
 
+var passport = require('passport');
+var session = require('express-session');
+//require secrets 
+
+var db = require('./models');
+var Customer = db.model('customer');
+var User = db.model('user');
+
+
 module.exports = app;
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+app.use(session({
+	secret: 'Welovecoffee',
+	resave: false,
+	saveUninitialized: false
+}))
+
+passport.serializeUser(function(user, done) {
+	done(null, user.id);	
+});
+
+passport.deserializeUser(function(id,done) {
+	User.findById(id)
+	.then(function(user) {
+		done(null, user);
+	})
+	.catch(done);
+})
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../browser')));
@@ -23,6 +53,7 @@ app.use(express.static(path.join(__dirname, '../node_modules')));
 
 //routes
 app.use('/api', require('./routes'));
+app.use('/auth', require('./routes/authentication.js'));
 
 /*
  This middleware will catch any URLs resembling a file extension
@@ -40,8 +71,12 @@ app.use(function (req, res, next) {
 
 });
 
-app.get('/*', function (req, res) {
-    res.sendFile('./browser/index.html');
+var validFrontendRoutes = ['/', '/phone', '/card', '/card/:phone', '/login'];
+var indexPath = path.join(__dirname, '..', 'browser', 'index.html');
+validFrontendRoutes.forEach(function (stateRoute) {
+  app.get(stateRoute, function (req, res) {
+    res.sendFile(indexPath);
+  });
 });
 
 // Error catching endware.
