@@ -1,8 +1,9 @@
 'use strict';
 
-coffeeCard.controller('CardCtrl', function ($scope, $log, $state, CardFactory, card) {
+coffeeCard.controller('CardCtrl', function ($scope, $log, $state, CardFactory, card, rewards) {
 
 	$scope.card = card ;
+	$scope.rewards = rewards;
 
 	$scope.getNumber = function(number) {
 		return new Array(number);
