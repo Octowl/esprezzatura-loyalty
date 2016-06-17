@@ -11,6 +11,9 @@ coffeeCard.config(function ($stateProvider) {
         	},
             rewards: function(RewardFactory) {
                 return RewardFactory.getAll();
+            },
+            user : function(AuthFactory) {
+                return AuthFactory.isLoggedIn();
             }
         }
     });

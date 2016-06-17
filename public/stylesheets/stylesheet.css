@@ -1,3 +1,7 @@
+#logoutbtn {
+  color: white;
+}
+
 #xbutton {
   color : #aaa;
 }
@@ -10,7 +14,7 @@ body {
   border-radius: 0 !important;
 }*/
 
-#form, #card {
+.becentered {
   position: absolute;
   top: 50%;
   left:50%;

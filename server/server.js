@@ -11,7 +11,7 @@ var PORT = process.env.PORT || 1337;
 server.on('request', require('./app'));
 
 // TODO: Remove force true in production
-db.sync({force: true})
+db.sync()
     .then(function () {
         server.listen(PORT, function () {
             console.log(chalk.blue('Server started on port', chalk.magenta(PORT)));
