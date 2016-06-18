@@ -4,7 +4,9 @@
 var Sequelize = require('sequelize');
 var crypto = require('crypto');
 
-var db = new Sequelize('process.env.DATABASE_URL', {
+console.log(process.env.DATABASE_URL);
+
+var db = new Sequelize(process.env.DATABASE_URL, {
   logging: false
 });
 
