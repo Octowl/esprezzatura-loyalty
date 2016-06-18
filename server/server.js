@@ -6,7 +6,7 @@ var chalk = require('chalk');
 var server = http.createServer();
 var db = require('./models');
 
-var PORT = process.env.PORT || 1337;
+var PORT = process.env.PORT || 8080;
 
 server.on('request', require('./app'));
 
