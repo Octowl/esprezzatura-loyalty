@@ -4,7 +4,7 @@
 var Sequelize = require('sequelize');
 var crypto = require('crypto');
 
-var db = new Sequelize('postgres://localhost:5432/esp', {
+var db = new Sequelize('process.env.DATABASE_URL', {
   logging: false
 });
 
