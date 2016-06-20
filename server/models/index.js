@@ -4,7 +4,7 @@
 var Sequelize = require('sequelize');
 var crypto = require('crypto');
 
-var DB_URI = process.env.HEROKU_POSTGRESQL_RED_URL;
+var DB_URI = "postgres://dfbditevvmlorm:vF_fjggAO-Z-XLto9LYQh08QlT@ec2-54-235-102-190.compute-1.amazonaws.com:5432/d6epvqb51a1ctu";
 
 var db = new Sequelize(DB_URI, {
   logging: false
